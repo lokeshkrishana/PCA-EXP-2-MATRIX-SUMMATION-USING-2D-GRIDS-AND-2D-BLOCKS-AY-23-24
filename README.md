@@ -1,6 +1,8 @@
+
 # PCA-EXP-2-Matrix-Summation-using-2D-Grids-and-2D-Blocks-AY-23-24
 <h3>ENTER YOUR NAME:Lokesh K</h3>
 <h3>ENTER YOUR REGISTER NO:212222040087</h3>
+
 
 <h1> <align=center> MATRIX SUMMATION WITH A 2D GRID AND 2D BLOCKS </h3>
 i.  Use the file sumMatrixOnGPU-2D-grid-2D-block.cu
@@ -12,6 +14,10 @@ To perform  matrix summation with a 2D grid and 2D blocks and adapting it to int
 ## EQUIPMENTS REQUIRED:
 Hardware – PCs with NVIDIA GPU & CUDA NVCC
 Google Colab with NVCC Compiler
+
+
+
+
 ## PROCEDURE:
 
 1.	Initialize the data: Generate random data for two input arrays using the initialData function.
@@ -31,9 +37,12 @@ Google Colab with NVCC Compiler
 %%cuda
 #include <cuda_runtime.h>
 #include <stdio.h>
+
 #include <sys/time.h>
+
 #ifndef _COMMON_H
 #define _COMMON_H
+
 #define CHECK(call)                                                            \
 {                                                                              \
     const cudaError_t error = call;                                            \
@@ -45,6 +54,8 @@ Google Colab with NVCC Compiler
         exit(1);                                                               \
     }                                                                          \
 }
+
+
 #define CHECK_CUBLAS(call)                                                     \
 {                                                                              \
     cublasStatus_t err;                                                        \
@@ -55,6 +66,7 @@ Google Colab with NVCC Compiler
         exit(1);                                                               \
     }                                                                          \
 }
+
 #define CHECK_CURAND(call)                                                     \
 {                                                                              \
     curandStatus_t err;                                                        \
@@ -65,6 +77,7 @@ Google Colab with NVCC Compiler
         exit(1);                                                               \
     }                                                                          \
 }
+
 #define CHECK_CUFFT(call)                                                      \
 {                                                                              \
     cufftResult err;                                                           \
@@ -117,16 +130,19 @@ void sumMatrixOnHost(float *A, float *B, float *C, const int nx, const int ny)
     float *ia = A;
     float *ib = B;
     float *ic = C;
+
     for (int iy = 0; iy < ny; iy++)
     {
         for (int ix = 0; ix < nx; ix++)
         {
             ic[ix] = ia[ix] + ib[ix];
         }
+
         ia += nx;
         ib += nx;
         ic += nx;
     }
+
     return;
 }
 
@@ -231,6 +247,13 @@ free(gpuRef);
 cudaDeviceReset();
 return (0);
 }
+
+
+
+
+
+
+
 ## OUTPUT:
 ![image](https://github.com/user-attachments/assets/e8e25175-d2ca-4f93-91ee-4be66228a463)
 
